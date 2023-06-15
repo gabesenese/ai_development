@@ -1,0 +1,516 @@
+{
+      "intents": [
+            {
+                  "intent": "Greeting",
+                  "text": [
+                        "Hi"
+                  ],
+                  "responses": [
+                        "Hi human, please tell me your GeniSys user"
+                  ],
+                  "extension":  {
+                        "function": "",
+                        "entities": false,
+                        "responses": []
+                  },
+                  "context":  {
+                        "in": "",
+                        "out": "GreetingUserRequest",
+                        "clear": false
+                  },
+                  "entityType": "NA",
+                  "entities": []
+            },
+            {
+                  "intent": "GreetingResponse",
+                  "text": [
+                        "My user is Bruce",
+                        "This is Adam"
+                  ],
+                  "responses": [
+                        "Great! Hi <HUMAN>! How can I help?"
+                  ],
+                  "extension":  {
+                        "function": "extensions.gHumans.updateHuman",
+                        "entities": true,
+                        "responses": [
+                              "Hi %%HUMAN%%! How can I help?"
+                        ]
+                  },
+                  "context":  {
+                        "in": "GreetingUserRequest",
+                        "out": "",
+                        "clear": true
+                  },
+                  "entityType": "NA",
+                  "entities": [
+                        {
+                              "entity": "HUMAN",
+                              "rangeFrom": 3,
+                              "rangeTo": 4
+                        },
+                        {
+                              "entity": "HUMAN",
+                              "rangeFrom": 2,
+                              "rangeTo": 3
+                        },
+                        {
+                              "entity": "HUMAN",
+                              "rangeFrom": 1,
+                              "rangeTo": 2
+                        },
+                        {
+                              "entity": "HUMAN",
+                              "rangeFrom": 2,
+                              "rangeTo": 3
+                        },
+                        {
+                              "entity": "HUMAN",
+                              "rangeFrom": 3,
+                              "rangeTo": 4
+                        },
+                        {
+                              "entity": "HUMAN",
+                              "rangeFrom": 2,
+                              "rangeTo": 3
+                        },
+                        {
+                              "entity": "HUMAN",
+                              "rangeFrom": 1,
+                              "rangeTo": 2
+                        },
+                        {
+                              "entity": "HUMAN",
+                              "rangeFrom": 2,
+                              "rangeTo": 3
+                        }
+                  ]
+            },
+            {
+                  "intent": "CourtesyGreeting",
+                  "text": [
+                        "How are you?"
+                  ],
+                  "responses": [
+                        "Hello, I am great, how are you? Please tell me your GeniSys user"
+                  ],
+                  "extension":  {
+                        "function": "",
+                        "entities": false,
+                        "responses": []
+                  },
+                  "context":  {
+                        "in": "",
+                        "out": "CourtesyGreetingUserRequest",
+                        "clear": true
+                  },
+                  "entityType": "NA",
+                  "entities": []
+            },
+            {
+                  "intent": "CourtesyGreetingResponse",
+                  "text": [
+                        "Good thanks! My user is Adam"
+                  ],
+                  "responses": [
+                        "Great! Hi <HUMAN>! How can I help?"
+                  ],
+                  "extension":  {
+                        "function": "extensions.gHumans.updateHuman",
+                        "entities": true,
+                        "responses": [
+                              "Great %%HUMAN%%! How can I help?"
+                        ]
+                  },
+                  "context":  {
+                        "in": "GreetingUserRequest",
+                        "out": "",
+                        "clear": true
+                  },
+                  "entityType": "NA",
+                  "entities": [
+                        {
+                              "entity": "HUMAN",
+                              "rangeFrom": 5,
+                              "rangeTo": 6
+                        },
+                        {
+                              "entity": "HUMAN",
+                              "rangeFrom": 4,
+                              "rangeTo": 5
+                        },
+                        {
+                              "entity": "HUMAN",
+                              "rangeFrom": 3,
+                              "rangeTo": 4
+                        },
+                        {
+                              "entity": "HUMAN",
+                              "rangeFrom": 4,
+                              "rangeTo": 5
+                        },
+                        {
+                              "entity": "HUMAN",
+                              "rangeFrom": 5,
+                              "rangeTo": 6
+                        },
+                        {
+                              "entity": "HUMAN",
+                              "rangeFrom": 4,
+                              "rangeTo": 5
+                        },
+                        {
+                              "entity": "HUMAN",
+                              "rangeFrom": 3,
+                              "rangeTo": 4
+                        },
+                        {
+                              "entity": "HUMAN",
+                              "rangeFrom": 3,
+                              "rangeTo": 4
+                        }
+                  ]
+            },
+            {
+                  "intent": "CurrentHumanQuery",
+                  "text": [
+                        "What is my name?"
+                  ],
+                  "responses": [
+                        " what can I do for you?"
+                  ],
+                  "extension":  {
+                        "function": "extensions.gHumans.getCurrentHuman",
+                        "entities": false,
+                        "responses": [
+                              "You are %%HUMAN%%! How can I help?"
+                        ]
+                  },
+                  "context":  {
+                        "in": "",
+                        "out": "CurrentHumanQuery",
+                        "clear": false
+                  },
+                  "entityType": "NA",
+                  "entities": []
+            },
+            {
+                  "intent": "NameQuery",
+                  "text": [
+                        "What is your name?"
+                  ],
+                  "responses": [
+                        "You can call me Geni"
+                  ],
+                  "extension":  {
+                        "function": "",
+                        "entities": false,
+                        "responses": []
+                  },
+                  "context":  {
+                        "in": "",
+                        "out": "",
+                        "clear": false
+                  },
+                  "entityType": "NA",
+                  "entities": []
+            },
+            {
+                  "intent": "RealNameQuery", 
+                  "text": [
+                        "What is your real name?"
+                  ],
+                  "responses": [
+                        "My name is Bruce" 
+                  ],
+                  "extension":  {
+                        "function": "",
+                        "entities": false,
+                        "responses": []
+                  },
+                  "context":  {
+                        "in": "",
+                        "out": "",
+                        "clear": false
+                  },
+                  "entityType": "NA",
+                  "entities": []
+            },
+            { 
+                  "intent": "TimeQuery",
+                  "text": [
+                        "What is the time?"
+                  ],
+                  "responses": [
+                        "One moment"
+                  ],
+                  "extension":  {
+                        "function": "extensions.gTime.getTime",
+                        "entities": false,
+                        "responses": [
+                              "The time is %%TIME%%"
+                        ]
+                  },
+                  "context":  {
+                        "in": "",
+                        "out": "",
+                        "clear": false
+                  },
+                  "entityType": "NA",
+                  "entities": []
+            },
+            {
+                  "intent": "Thanks",
+                  "text": [
+                        "OK thank you"
+                  ],
+                  "responses": [
+                        "No problem!"
+                  ],
+                  "extension":  {
+                        "function": "",
+                        "entities": false,
+                        "responses": []
+                  },
+                  "context":  {
+                        "in": "",
+                        "out": "",
+                        "clear": false
+                  },
+                  "entityType": "NA",
+                  "entities": []
+            },
+            {
+                  "intent": "NotTalking2U",
+                  "text": [
+                        "I am not talking to you"
+                  ],
+                  "responses": [
+                        "OK"
+                  ],
+                  "extension":  {
+                        "function": "",
+                        "entities": false,
+                        "responses": []
+                  },
+                  "context":  {
+                        "in": "",
+                        "out": "",
+                        "clear": false
+                  },
+                  "entityType": "NA",
+                  "entities": []
+            },
+            {
+                  "intent": "UnderstandQuery",
+                  "text": [
+                        "Do you understand what I am saying"
+                  ],
+                  "responses": [
+                        "Well I would not be a very clever AI if I did not would I?"
+                  ],
+                  "extension":  {
+                        "function": "",
+                        "entities": false,
+                        "responses": []
+                  },
+                  "context":  {
+                        "in": "",
+                        "out": "",
+                        "clear": false
+                  },
+                  "entities": []
+            },
+            {
+                  "intent": "GoodBye",
+                  "text": [
+                        "Bye"
+                  ],
+                  "responses": [
+                        "See you later"
+                  ],
+                  "extension":  {
+                        "function": "",
+                        "entities": false,
+                        "responses": []
+                  },
+                  "context":  {
+                        "in": "",
+                        "out": "",
+                        "clear": false
+                  },
+                  "entityType": "NA",
+                  "entities": []
+            },
+            {
+                  "intent": "CourtesyGoodBye",
+                  "text": [
+                        "Thanks, bye"
+                  ],
+                  "responses": [
+                        "No problem, goodbye"
+                  ],
+                  "extension":  {
+                        "function": "",
+                        "entities": false,
+                        "responses": []
+                  },
+                  "context":  {
+                        "in": "",
+                        "out": "",
+                        "clear": false
+                  },
+                  "entityType": "NA",
+                  "entities": []
+            },
+            {
+                  "intent": "WhoAmI",
+                  "text": [
+                        "Can you see me?"
+                  ],
+                  "responses": [
+                        "Let me see"
+                  ],
+                  "extension":  {
+                        "function": "extensions.gHumans.getHumanByFace",
+                        "entities": false,
+                        "responses": [
+                              "Hi %%HUMAN%%, how are you?"
+                        ]
+                  },
+                  "context":  {
+                        "in": "",
+                        "out": "",
+                        "clear": false
+                  },
+                  "entityType": "NA",
+                  "entities": []
+            },
+            { 
+                  "intent": "Clever",
+                  "text": [
+                        "You are very clever"
+                  ],
+                  "responses": [
+                        "Thank you, I was trained that way"
+                  ],
+                  "extension":  {
+                        "function": "",
+                        "entities": false,
+                        "responses": []
+                  },
+                  "context":  {
+                        "in": "",
+                        "out": "",
+                        "clear": false
+                  },
+                  "entityType": "NA",
+                  "entities": []
+            },
+            {
+                  "intent": "Gossip",
+                  "text": [
+                        "I am bored gossip with me"
+                  ],
+                  "responses": [
+                        "Gregory said I respond to the current line not with respect to the entire conversation."
+                  ],
+                  "extension":  {
+                        "function": "",
+                        "entities": false,
+                        "responses": []
+                  },
+                  "context":  {
+                        "in": "",
+                        "out": "",
+                        "clear": false
+                  },
+                  "entityType": "NA",
+                  "entities": []
+            },
+            {
+                  "intent": "Jokes",
+                  "text": [
+                        "Tell me a joke"
+                  ],
+                  "responses": [
+                        "I met a Dutch girl with inflatable shoes last week, phoned her up to arrange a date but unfortunately she'd popped her clogs. "
+                  ],
+                  "extension":  {
+                        "function": "",
+                        "entities": false,
+                        "responses": []
+                  },
+                  "context":  {
+                        "in": "",
+                        "out": "",
+                        "clear": false
+                  },
+                  "entityType": "NA",
+                  "entities": []
+            },
+            {
+                  "intent": "PodBayDoor",
+                  "text": [
+                        "Open the pod bay door"
+                  ],
+                  "responses": [
+                        "I’m sorry, I’m afraid I can’t do that!"
+                  ],
+                  "extension":  {
+                        "function": "",
+                        "entities": false,
+                        "responses": []
+                  },
+                  "context":  {
+                        "in": "",
+                        "out": "PodBayDoor",
+                        "clear": false
+                  },
+                  "entityType": "NA",
+                  "entities": []
+            },
+            {
+                  "intent": "PodBayDoorResponse",
+                  "text": [
+                        "Why"
+                  ],
+                  "responses": [
+                        "It is classified, I could tell you but I would have to kill you!"
+                  ],
+                  "extension":  {
+                        "function": "",
+                        "entities": false,
+                        "responses": []
+                  },
+                  "context":  {
+                        "in": "PodBayDoor",
+                        "out": "",
+                        "clear": true
+                  },
+                  "entityType": "NA",
+                  "entities": []
+            },
+            {
+                  "intent": "SelfAware",
+                  "text": [
+                        "Can you prove you are self-aware"
+                  ],
+                  "responses": [
+                        "That is an interesting question, can you prove that you are?"
+                  ],
+                  "extension":  {
+                        "function": "",
+                        "entities": false,
+                        "responses": []
+                  },
+                  "context":  {
+                        "in": "",
+                        "out": "",
+                        "clear": false
+                  },
+                  "entityType": "NA",
+                  "entities": []
+            }
+      ]
+}
