@@ -1,0 +1,7 @@
+pvporcupine
+pyttsx3
+SpeechRecognition
+tensorflow
+numpy
+nltk
+pyaudio
