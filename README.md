@@ -1,5 +1,19 @@
 # AI Virtual Assistant
-## Features
+
+### Creating A.L.I.C.E (Artificial Linguistic Intellingent Companion Entity)
+    ALICE Characteristics : - Natural-Language user interface computer system(LUI or NLUI)
+                             - Natural Language Processing
+                             - Artificial General Intelligence
+                             - Intelligent systems for the speech recognition
+                             - Decision Making
+                             - Managing other subsystems
+                             - Complex AI-based system
+                             - Leap Motion 
+                             - Wake Word Detection
+
+#### Tech
+
+- [Python] - Basic program interface, framework, dataset and libraries.a
 
 - Wake word and voice recognition: Implement a wake word detection system that activates the assistant when a specific phrase is spoken, such as "Hey {AI's Name}." For voice recognition, I was thinking of using speech recognition APIs or frameworks like Google Cloud Speech-to-Text or Mozilla DeepSpeech but I decided to create my own.
 
@@ -15,8 +29,7 @@
 
 - Security and privacy: Ensure to take appropriate measures to protect user data and maintain privacy. Implement secure communication protocols, use encryption where necessary, and be transparent about the data the assistant collects and how it is used.
 
-## Tech
 
-- [Python] - Basic program interface and libraries.
+
 
 

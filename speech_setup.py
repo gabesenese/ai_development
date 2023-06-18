@@ -1,81 +1,96 @@
-import datetime
-import random
-import speech_recognition as sr
 import pyttsx3
-#import ai_model
-import pvporcupine
-import pyaudio
+import speech_recognition as sr
+import json
+import difflib
+
+#import ai-model
+#from scipy.io import wavfile
 
 
-porcupine = pvporcupine.create(
-    access_key='N5DiMLx4CnALiaoZXEcSMLa+qT9+JyR7Tya2EshErRaNH6zynUzaOA==',
-    keywords=['picovoice']
-)
+# Initialize the text-to-speech engine
+def initialize_text_to_speech():
+    engine = pyttsx3.init('sapi5')
+    rate = engine.getProperty('rate')
+    engine.setProperty('rate', 170)
+    voices = engine.getProperty('voices')
+    engine.setProperty('voice', voices[0].id)
+    return engine
 
-CHUNK_SIZE = 256
-SAMPLE_RATE = porcupine.sample_rate
-
-def get_next_audio_frame():
-    audio = audio_stream.read(CHUNK_SIZE, exception_on_overflow=False)
-    return audio
-
-pa = pyaudio.PyAudio()
-audio_stream = pa.open(
-    rate=SAMPLE_RATE,
-    channels=1,
-    format=pyaudio.paInt16,
-    input=True,
-    frames_per_buffer=CHUNK_SIZE
-)
-
-try:
-    while True:
-        audio_frame = get_next_audio_frame()
-        if len(audio_frame) == 0:
-            continue
-        
-        keyword_index = porcupine.process(audio_frame)
-        if keyword_index == 0:
-            print("Porcupine detected")
-        elif keyword_index == 1:
-            pass
-
-except KeyboardInterrupt:
-    pass
-finally:
-    audio_stream.stop_stream()
-    audio_stream.close()
-    pa.terminate()
-    porcupine.delete()
-
-"""
-
-# setup engine for text-to-speech
-engine = pyttsx3.init('espeak')
-rate = engine.getProperty('rate')
-engine.setProperty('rate', 190)
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[0].id)
-
-
-
-
-# Get audio from microphone
-def MicrophoneAudio():
+# Initialize the speech recognition engine
+def initialize_speech_recognition():
     r = sr.Recognizer()
+    return r
+
+# Listen for user's voice input
+def listen_for_user_input(r):
     with sr.Microphone() as source:
         r.pause_threshold = 0.5
         r.energy_threshold = 4000
         r.adjust_for_ambient_noise(source)
         r.dynamic_energy_threshold = False
+        print("Listening...")
         audio = r.listen(source)
-
     try:
         query = r.recognize_google(audio)
-        print(query)
-    except Exception as e:
-        print("Speech Recognition Error")
-        return 'None'
-    return query
+        print("User said:", query)
+        return query.lower()
+    except sr.UnknownValueError:
+        print("Sorry, I could not understand what you said.")
+    except sr.RequestError as e:
+        print("Sorry, an error occurred while processing your request. Please try again.")
+    return ''
 
-"""
+# Process user query based on intents
+def process_query(query, engine, intents):
+   max_score = 0
+   matched_intent = None
+
+   for intent in intents:
+       for phrase in intents[intent]['intents']:
+        similarity = difflib.SequenceMatcher(None, intent.lower(), query.lower()).ratio()
+       if similarity > max_score:
+           max_score = similarity
+           matched_intent = intent
+
+   if matched_intent:
+       execute_intent(matched_intent, intents)
+
+   else:
+       respond_default()
+
+       for text in intents['text']:
+           if text.lower() in query:
+               execute_intent(intent)
+               return
+           respond_default(engine)
+
+def load_intents(file_path):
+    with open(file_path, 'r') as file:
+        intents = json.load(file)
+    return intents
+
+
+def execute_intent(intent, engine):
+    responses = intents[intent]['responses']
+    for response in responses:
+        engine.say(response)
+    engine.runAndWait()
+
+def respond_default(engine):
+    engine.say("I'm sorry, I didn't understand.")
+    engine.runAndWait()
+
+def run_ai():
+    engine = initialize_text_to_speech()
+    r = initialize_speech_recognition()
+
+    while True:
+        query = listen_for_user_input(r)
+        if query == 'stop':
+            break
+        process_query(query, engine, intents=intents)
+
+if __name__ == "__main__":
+    file_path = 'intents.json'
+    intents = load_intents('intents.json')
+    run_ai()
