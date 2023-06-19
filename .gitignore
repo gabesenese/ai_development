@@ -170,6 +170,15 @@ temp.wav
 .mp3
 .mp4
 
+# Training Data
+training_data
+tflearn_logs
+model.tflearn.data-00000-of-00001
+model.tflearn.index
+model.tflearn.meta
+checkpoint
 
 
-test.py
+# Other files
+ai_wake_on_word
+

@@ -13,7 +13,7 @@
 
 #### Tech
 
-- [Python] - Basic program interface, framework, dataset and libraries.a
+- [Python] - Basic program interface, framework, dataset and libraries
 
 - Wake word and voice recognition: Implement a wake word detection system that activates the assistant when a specific phrase is spoken, such as "Hey {AI's Name}." For voice recognition, I was thinking of using speech recognition APIs or frameworks like Google Cloud Speech-to-Text or Mozilla DeepSpeech but I decided to create my own.
 

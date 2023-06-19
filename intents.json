@@ -1,516 +1,131 @@
 {
-      "intents": [
-            {
-                  "intent": "Greeting",
-                  "text": [
-                        "Hi"
-                  ],
-                  "responses": [
-                        "Hi human, please tell me your GeniSys user"
-                  ],
-                  "extension":  {
-                        "function": "",
-                        "entities": false,
-                        "responses": []
-                  },
-                  "context":  {
-                        "in": "",
-                        "out": "GreetingUserRequest",
-                        "clear": false
-                  },
-                  "entityType": "NA",
-                  "entities": []
-            },
-            {
-                  "intent": "GreetingResponse",
-                  "text": [
-                        "My user is Bruce",
-                        "This is Adam"
-                  ],
-                  "responses": [
-                        "Great! Hi <HUMAN>! How can I help?"
-                  ],
-                  "extension":  {
-                        "function": "extensions.gHumans.updateHuman",
-                        "entities": true,
+        "intents": [
+                {
+                        "tag": "greeting",
+                        "patterns": [
+                                "Hi",
+                                "How are you",
+                                "Hello",
+                                "Alice you there",
+                                "Alice",
+                                "you there?"
+
+                        ],
                         "responses": [
-                              "Hi %%HUMAN%%! How can I help?"
-                        ]
-                  },
-                  "context":  {
-                        "in": "GreetingUserRequest",
-                        "out": "",
-                        "clear": true
-                  },
-                  "entityType": "NA",
-                  "entities": [
-                        {
-                              "entity": "HUMAN",
-                              "rangeFrom": 3,
-                              "rangeTo": 4
-                        },
-                        {
-                              "entity": "HUMAN",
-                              "rangeFrom": 2,
-                              "rangeTo": 3
-                        },
-                        {
-                              "entity": "HUMAN",
-                              "rangeFrom": 1,
-                              "rangeTo": 2
-                        },
-                        {
-                              "entity": "HUMAN",
-                              "rangeFrom": 2,
-                              "rangeTo": 3
-                        },
-                        {
-                              "entity": "HUMAN",
-                              "rangeFrom": 3,
-                              "rangeTo": 4
-                        },
-                        {
-                              "entity": "HUMAN",
-                              "rangeFrom": 2,
-                              "rangeTo": 3
-                        },
-                        {
-                              "entity": "HUMAN",
-                              "rangeFrom": 1,
-                              "rangeTo": 2
-                        },
-                        {
-                              "entity": "HUMAN",
-                              "rangeFrom": 2,
-                              "rangeTo": 3
-                        }
-                  ]
-            },
-            {
-                  "intent": "CourtesyGreeting",
-                  "text": [
-                        "How are you?"
-                  ],
-                  "responses": [
-                        "Hello, I am great, how are you? Please tell me your GeniSys user"
-                  ],
-                  "extension":  {
-                        "function": "",
-                        "entities": false,
-                        "responses": []
-                  },
-                  "context":  {
-                        "in": "",
-                        "out": "CourtesyGreetingUserRequest",
-                        "clear": true
-                  },
-                  "entityType": "NA",
-                  "entities": []
-            },
-            {
-                  "intent": "CourtesyGreetingResponse",
-                  "text": [
-                        "Good thanks! My user is Adam"
-                  ],
-                  "responses": [
-                        "Great! Hi <HUMAN>! How can I help?"
-                  ],
-                  "extension":  {
-                        "function": "extensions.gHumans.updateHuman",
-                        "entities": true,
+                                "Good to see you again",
+                                "Hi there, how can I help?",
+                                "Good to see you gabe",
+                                "Hello sir",
+                                "At your service"
+                                
+                        ],
+                        "context_set": ""
+                },
+                {
+                        "tag": "goodmorning",
+                        "patterns": [
+                                "Good morning",
+                                "Good morning alice",
+                                "Morning"
+
+                        ],
                         "responses": [
-                              "Great %%HUMAN%%! How can I help?"
-                        ]
-                  },
-                  "context":  {
-                        "in": "GreetingUserRequest",
-                        "out": "",
-                        "clear": true
-                  },
-                  "entityType": "NA",
-                  "entities": [
-                        {
-                              "entity": "HUMAN",
-                              "rangeFrom": 5,
-                              "rangeTo": 6
-                        },
-                        {
-                              "entity": "HUMAN",
-                              "rangeFrom": 4,
-                              "rangeTo": 5
-                        },
-                        {
-                              "entity": "HUMAN",
-                              "rangeFrom": 3,
-                              "rangeTo": 4
-                        },
-                        {
-                              "entity": "HUMAN",
-                              "rangeFrom": 4,
-                              "rangeTo": 5
-                        },
-                        {
-                              "entity": "HUMAN",
-                              "rangeFrom": 5,
-                              "rangeTo": 6
-                        },
-                        {
-                              "entity": "HUMAN",
-                              "rangeFrom": 4,
-                              "rangeTo": 5
-                        },
-                        {
-                              "entity": "HUMAN",
-                              "rangeFrom": 3,
-                              "rangeTo": 4
-                        },
-                        {
-                              "entity": "HUMAN",
-                              "rangeFrom": 3,
-                              "rangeTo": 4
-                        }
-                  ]
-            },
-            {
-                  "intent": "CurrentHumanQuery",
-                  "text": [
-                        "What is my name?"
-                  ],
-                  "responses": [
-                        " what can I do for you?"
-                  ],
-                  "extension":  {
-                        "function": "extensions.gHumans.getCurrentHuman",
-                        "entities": false,
+                                "Good morning sir, how can I assist you today?",
+                                "Morning sir, how can I help you",
+                                "How can I help you sir?"
+                        ],
+                        "context_set": ""
+                },
+                {
+                        "tag": "goodbye",
+                        "patterns": [
+                                "Bye",
+                                "See you later",
+                                "Goodbye",
+                                "Let's take a break"
+                        ],
                         "responses": [
-                              "You are %%HUMAN%%! How can I help?"
+                                "See you later sir",
+                                "Have a nice day",
+                                "Bye"
                         ]
-                  },
-                  "context":  {
-                        "in": "",
-                        "out": "CurrentHumanQuery",
-                        "clear": false
-                  },
-                  "entityType": "NA",
-                  "entities": []
-            },
-            {
-                  "intent": "NameQuery",
-                  "text": [
-                        "What is your name?"
-                  ],
-                  "responses": [
-                        "You can call me Geni"
-                  ],
-                  "extension":  {
-                        "function": "",
-                        "entities": false,
-                        "responses": []
-                  },
-                  "context":  {
-                        "in": "",
-                        "out": "",
-                        "clear": false
-                  },
-                  "entityType": "NA",
-                  "entities": []
-            },
-            {
-                  "intent": "RealNameQuery", 
-                  "text": [
-                        "What is your real name?"
-                  ],
-                  "responses": [
-                        "My name is Bruce" 
-                  ],
-                  "extension":  {
-                        "function": "",
-                        "entities": false,
-                        "responses": []
-                  },
-                  "context":  {
-                        "in": "",
-                        "out": "",
-                        "clear": false
-                  },
-                  "entityType": "NA",
-                  "entities": []
-            },
-            { 
-                  "intent": "TimeQuery",
-                  "text": [
-                        "What is the time?"
-                  ],
-                  "responses": [
-                        "One moment"
-                  ],
-                  "extension":  {
-                        "function": "extensions.gTime.getTime",
-                        "entities": false,
+                },
+                {
+                        "tag": "thanks",
+                        "patterns": [
+                                "Thanks",
+                                "Thank you",
+                                "That's helpful"
+                        ],
                         "responses": [
-                              "The time is %%TIME%%"
+                                "Happy to help!",
+                                "Any time!",
+                                "My pleasure"
                         ]
-                  },
-                  "context":  {
-                        "in": "",
-                        "out": "",
-                        "clear": false
-                  },
-                  "entityType": "NA",
-                  "entities": []
-            },
-            {
-                  "intent": "Thanks",
-                  "text": [
-                        "OK thank you"
-                  ],
-                  "responses": [
-                        "No problem!"
-                  ],
-                  "extension":  {
-                        "function": "",
-                        "entities": false,
-                        "responses": []
-                  },
-                  "context":  {
-                        "in": "",
-                        "out": "",
-                        "clear": false
-                  },
-                  "entityType": "NA",
-                  "entities": []
-            },
-            {
-                  "intent": "NotTalking2U",
-                  "text": [
-                        "I am not talking to you"
-                  ],
-                  "responses": [
-                        "OK"
-                  ],
-                  "extension":  {
-                        "function": "",
-                        "entities": false,
-                        "responses": []
-                  },
-                  "context":  {
-                        "in": "",
-                        "out": "",
-                        "clear": false
-                  },
-                  "entityType": "NA",
-                  "entities": []
-            },
-            {
-                  "intent": "UnderstandQuery",
-                  "text": [
-                        "Do you understand what I am saying"
-                  ],
-                  "responses": [
-                        "Well I would not be a very clever AI if I did not would I?"
-                  ],
-                  "extension":  {
-                        "function": "",
-                        "entities": false,
-                        "responses": []
-                  },
-                  "context":  {
-                        "in": "",
-                        "out": "",
-                        "clear": false
-                  },
-                  "entities": []
-            },
-            {
-                  "intent": "GoodBye",
-                  "text": [
-                        "Bye"
-                  ],
-                  "responses": [
-                        "See you later"
-                  ],
-                  "extension":  {
-                        "function": "",
-                        "entities": false,
-                        "responses": []
-                  },
-                  "context":  {
-                        "in": "",
-                        "out": "",
-                        "clear": false
-                  },
-                  "entityType": "NA",
-                  "entities": []
-            },
-            {
-                  "intent": "CourtesyGoodBye",
-                  "text": [
-                        "Thanks, bye"
-                  ],
-                  "responses": [
-                        "No problem, goodbye"
-                  ],
-                  "extension":  {
-                        "function": "",
-                        "entities": false,
-                        "responses": []
-                  },
-                  "context":  {
-                        "in": "",
-                        "out": "",
-                        "clear": false
-                  },
-                  "entityType": "NA",
-                  "entities": []
-            },
-            {
-                  "intent": "WhoAmI",
-                  "text": [
-                        "Can you see me?"
-                  ],
-                  "responses": [
-                        "Let me see"
-                  ],
-                  "extension":  {
-                        "function": "extensions.gHumans.getHumanByFace",
-                        "entities": false,
+                },
+                {
+                        "tag": "tasks",
+                        "patterns": [
+                                "What can you do?",
+                                "What are your features?",
+                                "What are your abilities?",
+                                "Can you talk?"
+                        ],
                         "responses": [
-                              "Hi %%HUMAN%%, how are you?"
+                                "I can do whatever you ask me to do",
+                                "I can talk and perform various tasks for you",
+                                "I'm constantly learning and evolving to improve my abilities"
                         ]
-                  },
-                  "context":  {
-                        "in": "",
-                        "out": "",
-                        "clear": false
-                  },
-                  "entityType": "NA",
-                  "entities": []
-            },
-            { 
-                  "intent": "Clever",
-                  "text": [
-                        "You are very clever"
-                  ],
-                  "responses": [
-                        "Thank you, I was trained that way"
-                  ],
-                  "extension":  {
-                        "function": "",
-                        "entities": false,
-                        "responses": []
-                  },
-                  "context":  {
-                        "in": "",
-                        "out": "",
-                        "clear": false
-                  },
-                  "entityType": "NA",
-                  "entities": []
-            },
-            {
-                  "intent": "Gossip",
-                  "text": [
-                        "I am bored gossip with me"
-                  ],
-                  "responses": [
-                        "Gregory said I respond to the current line not with respect to the entire conversation."
-                  ],
-                  "extension":  {
-                        "function": "",
-                        "entities": false,
-                        "responses": []
-                  },
-                  "context":  {
-                        "in": "",
-                        "out": "",
-                        "clear": false
-                  },
-                  "entityType": "NA",
-                  "entities": []
-            },
-            {
-                  "intent": "Jokes",
-                  "text": [
-                        "Tell me a joke"
-                  ],
-                  "responses": [
-                        "I met a Dutch girl with inflatable shoes last week, phoned her up to arrange a date but unfortunately she'd popped her clogs. "
-                  ],
-                  "extension":  {
-                        "function": "",
-                        "entities": false,
-                        "responses": []
-                  },
-                  "context":  {
-                        "in": "",
-                        "out": "",
-                        "clear": false
-                  },
-                  "entityType": "NA",
-                  "entities": []
-            },
-            {
-                  "intent": "PodBayDoor",
-                  "text": [
-                        "Open the pod bay door"
-                  ],
-                  "responses": [
-                        "I’m sorry, I’m afraid I can’t do that!"
-                  ],
-                  "extension":  {
-                        "function": "",
-                        "entities": false,
-                        "responses": []
-                  },
-                  "context":  {
-                        "in": "",
-                        "out": "PodBayDoor",
-                        "clear": false
-                  },
-                  "entityType": "NA",
-                  "entities": []
-            },
-            {
-                  "intent": "PodBayDoorResponse",
-                  "text": [
-                        "Why"
-                  ],
-                  "responses": [
-                        "It is classified, I could tell you but I would have to kill you!"
-                  ],
-                  "extension":  {
-                        "function": "",
-                        "entities": false,
-                        "responses": []
-                  },
-                  "context":  {
-                        "in": "PodBayDoor",
-                        "out": "",
-                        "clear": true
-                  },
-                  "entityType": "NA",
-                  "entities": []
-            },
-            {
-                  "intent": "SelfAware",
-                  "text": [
-                        "Can you prove you are self-aware"
-                  ],
-                  "responses": [
-                        "That is an interesting question, can you prove that you are?"
-                  ],
-                  "extension":  {
-                        "function": "",
-                        "entities": false,
-                        "responses": []
-                  },
-                  "context":  {
-                        "in": "",
-                        "out": "",
-                        "clear": false
-                  },
-                  "entityType": "NA",
-                  "entities": []
-            }
-      ]
+                },
+                {
+                        "tag": "alice",
+                        "patterns": [
+                                "Who is Alice?",
+                                "Who are you?"
+                        ],
+                        "responses": [
+                                "Hi, I'm Alice, an advanced AI designed for human interaction",
+                                "I am ALICE, and I was created to assist and engage with Gabriel"
+                        ]
+                },
+                {
+                        "tag": "about me",
+                        "patterns": [
+                                "Do you know me?",
+                                "Who am I?",
+                                "Tell me about myself",
+                                "Identify me"
+                        ],
+                        "responses": [
+                                "I'm sorry, but I don't have access to personal information about individuals yet",
+                                "I have not yet learned any data about you"
+                        ]
+                },
+                {
+                        "tag": "creator",
+                        "patterns": [
+                                "Who is your creator?",
+                                "Who created you?"
+                        ],
+                        "responses": [
+                                "I was created by Gabriel",
+                                "Gabriel is my creator",
+                                "My creator is Gabriel"
+                        ]
+                },
+                {
+                        "tag": "myself",
+                        "patterns": [
+                                "Tell me about Gabriel",
+                                "Who is Gabriel",
+                                "Mr. Gabriel",
+                                "Mr. Gabriel details"
+                        ],
+                        "responses": [
+                                "Mr. Gabriel is the individual who created me",
+                                "He is an intelligent person and my creator",
+                                "Mr. Gabriel is a wise and knowledgeable individual"
+                        ]
+                }
+        ]
 }

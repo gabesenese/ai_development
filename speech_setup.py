@@ -3,10 +3,6 @@ import speech_recognition as sr
 import json
 import difflib
 
-#import ai-model
-#from scipy.io import wavfile
-
-
 # Initialize the text-to-speech engine
 def initialize_text_to_speech():
     engine = pyttsx3.init('sapi5')
