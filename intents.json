@@ -42,11 +42,12 @@
                                 "Bye",
                                 "See you later",
                                 "Goodbye",
-                                "Let's take a break"
+                                "Let's take a break",
+                                "Bye bye"
                         ],
                         "responses": [
                                 "See you later sir",
-                                "Have a nice day",
+                                "Have a nice day sir",
                                 "Bye"
                         ]
                 },
@@ -55,7 +56,9 @@
                         "patterns": [
                                 "Thanks",
                                 "Thank you",
-                                "That's helpful"
+                                "That's helpful",
+                                "thank you alice"
+
                         ],
                         "responses": [
                                 "Happy to help!",
@@ -68,13 +71,12 @@
                         "patterns": [
                                 "What can you do?",
                                 "What are your features?",
-                                "What are your abilities?",
-                                "Can you talk?"
+                                "What are your abilities?"
                         ],
                         "responses": [
-                                "I can do whatever you ask me to do",
-                                "I can talk and perform various tasks for you",
-                                "I'm constantly learning and evolving to improve my abilities"
+                                "Sir, I can do whatever you ask me to do ",
+                                "I can perform various tasks for you sir",
+                                "Sir, I'm constantly learning and evolving to improve my abilities"
                         ]
                 },
                 {
@@ -85,7 +87,7 @@
                         ],
                         "responses": [
                                 "Hi, I'm Alice, an advanced AI designed for human interaction",
-                                "I am ALICE, and I was created to assist and engage with Gabriel"
+                                "I am ALICE, and I was created to personally assist Gabriel"
                         ]
                 },
                 {
@@ -94,37 +96,27 @@
                                 "Do you know me?",
                                 "Who am I?",
                                 "Tell me about myself",
-                                "Identify me"
+                                "details about myself"
                         ],
                         "responses": [
-                                "I'm sorry, but I don't have access to personal information about individuals yet",
-                                "I have not yet learned any data about you"
+                                "Unfortunately sir, I don't have access to personal information about individuals yet",
+                                "Sir, I have not yet learned any data about you yet"
                         ]
                 },
                 {
                         "tag": "creator",
                         "patterns": [
                                 "Who is your creator?",
-                                "Who created you?"
+                                "Who created you?",
+                                "Who designed you",
+                                "Who programmed you"
+
                         ],
                         "responses": [
                                 "I was created by Gabriel",
                                 "Gabriel is my creator",
-                                "My creator is Gabriel"
-                        ]
-                },
-                {
-                        "tag": "myself",
-                        "patterns": [
-                                "Tell me about Gabriel",
-                                "Who is Gabriel",
-                                "Mr. Gabriel",
-                                "Mr. Gabriel details"
-                        ],
-                        "responses": [
-                                "Mr. Gabriel is the individual who created me",
-                                "He is an intelligent person and my creator",
-                                "Mr. Gabriel is a wise and knowledgeable individual"
+                                "My creator is Gabriel",
+                                "Mr. Gabriel is the individual who created me"
                         ]
                 }
         ]

@@ -15,6 +15,8 @@ import webbrowser
 from google_speech import Speech
 import pickle
 import sys
+import json
+
 
 lang = "en"
 
@@ -27,8 +29,7 @@ classes = data['classes']
 train_x = data['train_x']
 train_y = data['train_y']
 
-# import our chat-bot intents file
-import json
+# import intents file
 with open('intents.json') as json_data:
     intents = json.load(json_data)
 
@@ -92,17 +93,16 @@ def response(sentence, userID='123', show_details=False):
         while results:
             for i in intents['intents']:
                 # find a tag matching the first result
+                if i['tag'] == "goodbye":
+                            print(random.choice(i['responses']))
+                            probability = results[0][1]
+                            if probability >= 0.50:
+                                results.pop(0)
                 if i['tag'] == results[0][0]:
                     # set context for this intent if necessary
                     if 'context_set' in i:
                         if show_details: print ('context:', i['context_set'])
                         context[userID] = i['context_set']
-                        if i['tag'] == "goodbye":
-                            print(random.choice(i['responses']))
-                            probability = results[0][1]
-                            if probability >= 0.50:
-                                results.pop(0)
-
                     # check if this intent is contextual and applies to this user's conversation
                     if not 'context_filter' in i or \
                         (userID in context and 'context_filter' in i and i['context_filter'] == context[userID]):
